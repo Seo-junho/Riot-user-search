@@ -1,0 +1,34 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="home.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    </head>
+    <body>
+            <input type="button" id="submit">
+    </body>
+<script>
+$("#submit").click(function() {
+    var SUMMONER_NAME = "dkdld";
+    var SUMMONER_ID = "7428"; //Picked at random.
+	var API_KEY = "";
+	var REGION = "kr"
+
+	$.ajax(
+    {
+	  url: "https://" + REGION + ".api.pvp.net/api/lol/" + REGION + "/v1.4/summoner/by-name/" + SUMMONER_NAME + "?api_key=" + API_KEY,
+		success: function(resp)
+		{
+			alert(resp);
+		},
+	 
+		error: function()
+		{
+			alert("There was some error. Did you enter a valid API_KEY?");
+		}
+	});
+});
+    
+    
+    
+</script>
+</html>
