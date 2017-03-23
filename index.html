@@ -1,37 +1,16 @@
 <html>
     <head>
+	<meta charset="utf-8">
     <link rel="stylesheet" href="index.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     </head>
     <body>
         <div class="container">
             <h1>Riot User Search</h1>
-            <input type="text" class="search" placeholder="소환사 이름을 입력하세요." id="nickname">
-            <input type="button" id="submit" class="submit" value="검색">
+			<form action="api.php" method="POST" enctype="multipart/form-data">
+				<input type="text" class="search" placeholder="소환사 이름을 입력하세요." id="nickname" name="nickname">
+				<input type="submit" value="검색">
+			</form>	
         </div>
     </body>
-<script>
-$("#submit").click(function() {
-    var SUMMONER_NAME = $("#nickname").val();
-    var SUMMONER_ID = "7428"; //Picked at random.
-	var API_KEY = "RGAPI-094ba06b-f7e9-4adc-b7a9-48e4a8e2f242"; // 개인 api key
-	var REGION = "kr"
-    
-    console.log("유저 g아이디 : "+ SUMMONER_NAME);
-    
-	$.ajax(
-    {
-	  url: "https://" + REGION + ".api.pvp.net/api/lol/" + REGION + "/v1.4/summoner/by-name/" + SUMMONER_NAME + "?api_key=" + API_KEY,
-		success: function(resp)
-		{
-			alert(resp);
-		},
-	 
-		error: function()
-		{
-			alert("API key 오류");
-		}
-	});
-});  
-</script>
 </html>
